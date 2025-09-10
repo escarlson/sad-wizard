@@ -2,28 +2,28 @@ const canvas = document.querySelector("canvas");
 const secondsCount = document.querySelector(".seconds");
 const level = document.querySelector(".grade");
 const context = canvas.getContext("2d");
-const pugDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
+const wizardDimensions = { width: 353 * 1.2, height: 325 * 1.2 };
 
 
 const levels = {
-  5: "Sr Assistant",
-  10: "Jr Honoror",
-  15: "Master Honoror",
-  35: "S Tier Honoror",
-  65: "Junior Acolyte",
-  105: "Acolyte",
-  150: "Senior Acolyte",
-  250: "Priest",
-  450: "Sage",
-  650: "Hermit",
-  1000: "Senior Hermit",
-  1500: "CEO",
-  2500: "Pope",
-  3500: "Underlord",
-  4500: "Lord",
-  10500: "OverLord",
-  20500: "King",
-  30500: "Anunnaki"
+  5: "Assistant",
+  10: "Novice Spellcaster",
+  15: "Melancholy Master",
+  35: "Brooding Enchanter",
+  65: "Somber Sorcerer",
+  105: "Gloomy Magus",
+  150: "Despondent Warlock",
+  250: "Sorrowful Wizard",
+  450: "Weeping Archmage",
+  650: "Mourning Sage",
+  1000: "Forlorn Seer",
+  1500: "Grieving Mystic",
+  2500: "Wistful Elder",
+  3500: "Lamenting Grandmaster",
+  4500: "Tragic Oracle",
+  10500: "Desolate Overwizard",
+  20500: "Crying Spell Lord",
+  30500: "Sadness Incarnate"
 }
 
 const startTime = Date.now();
@@ -33,9 +33,9 @@ canvas.height = window.innerHeight;
 context.translate(window.innerWidth / 2, window.innerHeight / 2);
 
 const image = new Image();
-image.src = "./assets/pug.png"; // Photo credit to Matthew Henry (https://unsplash.com/photos/U5rMrSI7Pn4)
+image.src = "./assets/sad-wizard.png";
 
-const loopingPugs = 40; // 125 pugs required to cover a full 4K television screen. Tested via Firefox DevTools
+const loopingWizards = 60;
 const offsetDistance = 120;
 let currentOffset = 0;
 
@@ -66,13 +66,13 @@ window.addEventListener('mousemove', onMouseMove)
 
 function draw(offset, loopCount) {
 
-  let currentPercentage = (loopingPugs - loopCount) / loopingPugs
+  let currentPercentage = (loopingWizards - loopCount) / loopingWizards
   context.drawImage(
     image,
-    -pugDimensions.width / 2 - offset/2 + (movementOffset.x * currentPercentage),
-    -pugDimensions.height / 2 - offset/2 + (movementOffset.y * currentPercentage),
-    pugDimensions.width + offset,
-    pugDimensions.height + offset
+    -wizardDimensions.width / 2 - offset/2 + (movementOffset.x * currentPercentage),
+    -wizardDimensions.height / 2 - offset/2 + (movementOffset.y * currentPercentage),
+    wizardDimensions.width + offset,
+    wizardDimensions.height + offset
   );
 }
 
@@ -90,7 +90,7 @@ function loopDraw() {
   movementOffset.x = lerp(movementOffset.x, mouseOffset.x, 0.05)
   movementOffset.y = lerp(movementOffset.y, mouseOffset.y, 0.05)
 
-  for (let i = loopingPugs; i >= 1; i--) {
+  for (let i = loopingWizards; i >= 1; i--) {
     draw(i * offsetDistance + currentOffset, i);
   }
 
