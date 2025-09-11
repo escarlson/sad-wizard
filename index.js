@@ -23,7 +23,9 @@ const levels = {
   4500: "Tragic Oracle",
   10500: "Desolate Overwizard",
   20500: "Crying Spell Lord",
-  30500: "Sadness Incarnate"
+  30500: "Sadness Incarnate",
+  50500: "Eternal Melancholy",
+  100500: "Business Owner"
 }
 
 const startTime = Date.now();
